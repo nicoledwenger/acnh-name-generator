@@ -1,0 +1,192 @@
+<html>
+  <head>
+
+  </head>
+
+
+<body>
+    <button type="button" onClick="generateName();">create new name</button>
+
+    <fieldset>
+        <legend>Word categories to use</legend>
+        <span><input type="checkbox" checked="true" id="water"><label for="water">Island/Water</label></span>
+        <span><input type="checkbox" checked="true" id="animal"><label for="animal">Animals</label></span>
+        <span><input type="checkbox" checked="true" id="forest"><label for="forest">Forest</label></span>
+        <span><input type="checkbox" checked="true" id="flower"><label for="flower">Flowers</label></span>
+        <span><input type="checkbox" checked="true" id="food"><label for="food">Foods</label></span>
+        <span><input type="checkbox" checked="true" id="sky"><label for="sky">Sky/Weather</label></span>
+        <span><input type="checkbox" checked="true" id="winter"><label for="winter">Winter</label></span>
+        <span><input type="checkbox" checked="true" id="color"><label for="color">Colors</label></span>
+        <span><input type="checkbox" checked="true" id="month"><label for="month">Months</label></span>
+        <span><input type="checkbox" checked="true" id="music"><label for="music">Music</label></span>
+        <span><input type="checkbox" checked="true" id="spooky"><label for="spooky">Spooky</label></span>
+        <span><input type="checkbox" checked="true" id="rock"><label for="rock">Rocks/Gems</label></span>
+        <span><input type="checkbox" checked="true" id="other"><label for="other">Other</label></span>
+      </fieldset>
+
+    <p id="result"></p>
+</body>
+
+<script>
+
+    function generateName() {
+    //sets variables
+      var name_array = [];
+      var cats = activeCategories();
+      var lengths = pick(length_sets);
+
+      //chooses a random value in the selected categories
+      for (var i=0; i<lengths.length; ++i) {
+        var cat = pick(cats);
+        name_array.push(pick(words[cat][lengths[i]]));
+      }
+
+      //joins selected values with a space
+      name = name_array.join(' ');
+      
+      //removes spaces if a name is greater than 10 characters as animal crossing cannot accept more than 10 characters
+      if (name.length > 10)
+        name = name.replace(/ /g, '');
+      document.getElementById('result').innerHTML = name;
+    }
+
+    //finds categories that are checked and returns possible categories
+    function activeCategories() {
+      var cats = [];
+      var checkboxes = document.querySelectorAll("input");
+      for (var i=0; i<checkboxes.length; ++i) {
+        if (checkboxes[i].type == "checkbox" && checkboxes[i].checked)
+          cats.push(checkboxes[i].id);
+      }
+      return cats;
+    }
+
+    //chooses a random values and returns its index
+    function pick(values) {
+      var index = Math.floor((Math.random() * values.length));
+      return values[index];
+    }
+    
+    //set of categories created by angiestown on tumblr
+    var words = {
+      water: {
+        3: ['Bay', 'Sea', 'Wet', 'Eel'],
+        4: ['Isle', 'Tide', 'Dock', 'Port', 'Boat', 'Ship', 'Sand', 'Lake', 'Flow', 'Damp', 'Pond', 'Palm'],
+        5: ['Shore', 'Shell', 'Beach', 'Pearl', 'Ocean', 'Moist', 'River', 'Water', 'Coral'],
+        6: ['Cruise', 'Summer', 'Bubble', 'Harbor', 'Marine'],
+        7: ['Seaweed', 'Mermaid', 'Harbour']
+      },
+      animal: {
+        3: ['Cat', 'Dog', 'Paw', 'Cow', 'Cub', 'Pig', 'Fox', 'Zoo'],
+        4: ['Fish', 'Frog', 'Bird', 'Wing', 'Tail', 'Lion', 'Bull', 'Deer', 'Bear', 'Duck', 'Goat', 'Crab', 'Horn', 'Wolf', 'Gull', 'Tuna'],
+        5: ['Horse', 'Bunny', 'Tiger', 'Eagle', 'Hippo', 'Koala', 'Kitty', 'Puppy', 'Mouse', 'Moose', 'Rhino', 'Sheep', 'Shark', 'Snail', 'Whale'],
+        6: ['Rabbit', 'Monkey', 'Badger', 'Parrot', 'Salmon'],
+        7: ['Firefly']
+      },
+      forest: {
+        3: ['Oak', 'Nut', 'Dew', 'Sap', 'Elm', 'Fir'],
+        4: ['Wood', 'Weed', 'Seed', 'Bark', 'Tree', 'Fall', 'Leaf', 'Root', 'Vine', 'Pine', 'Bush', 'Moss', 'Dirt'],
+        5: ['Maple', 'Field', 'Acorn', 'Grass', 'Nymph', 'Plant', 'Wheat', 'Birch', 'Cedar'],
+        6: ['Acacia', 'Nutmeg', 'Willow', 'Mildew', 'Canopy', 'Cotton', 'Spruce', 'Walnut', 'Forest'],
+        7: ['Hemlock', 'Hickory'],
+      },
+      flower: {
+        3: ['Bug', 'Bee'],
+        4: ['Rose', 'Lily', 'Bulb', 'Iris', 'Puff'],
+        5: ['Bloom', 'Tulip', 'Spring', 'Cosmo', 'Pansy', 'Daisy', 'Honey', 'Poppy', 'Lilac', 'Lotus', 'Peony'],
+        6: ['Violet', 'Spring', 'Bumble', 'Beetle', 'Garden', 'Flower'],
+        7: ['Blossom', 'Ladybug'],
+      },
+      food: {
+        3: ['Pit', 'Cup', 'Egg', 'Pie', 'Bun', 'Tea'],
+        4: ['Pear', 'Sour', 'Lime', 'Plum', 'Cake', 'Milk', 'Bean', 'Farm', 'Bake', 'Cook', 'Roll', 'Mint', 'Tart'],
+        5: ['Apple', 'Peach', 'Lemon', 'Berry', 'Fruit', 'Sweet', 'Grape', 'Mango', 'Sugar', 'Jelly', 'Cream', 'Layer', 'Candy', 'Mince', 'Fudge', 'Donut', 'Pecan', 'Toast'],
+        6: ['Banana', 'Potato', 'Carrot'],
+        7: ['Dessert', 'Mustard', 'Cupcake'],
+      },
+      sky: {
+        3: ['Sky', 'Sun', 'Day', 'Ray', 'Fog', 'Sol'],
+        4: ['Moon', 'Rain', 'Dark', 'Wind', 'Drop', 'Mist', 'Warm', 'Gust'],
+        5: ['Night', 'Cloud', 'Shine', 'Light', 'Foggy', 'Comet', 'Storm', 'Dream'],
+        6: ['Cosmos', 'Breeze', 'Meteor', 'Bright'],
+        7: ['Thunder', 'Eclipse', 'Rainbow'],
+      },
+      winter: {
+        3: ['Ice', 'Nip'],
+        4: ['Snow', 'Slip', 'Bite', 'Cold', 'Coat', 'Yule', 'Noel', 'Cozy'],
+        5: ['Frost', 'Chill', 'Flake', 'Holly', 'Jolly', 'Slush', 'Polar', 'Scarf'],
+        6: ['Winter', 'Tundra', 'Aurora', 'Toasty', 'Mitten', 'Arctic'],
+        7: ['Snowman'],
+      },
+      color: {
+        3: ['Red'],
+        4: ['Blue', 'Aqua', 'Teal', 'Pink', 'Navy', 'Grey', 'Gray', 'Cyan', 'Gold', 'Jade'],
+        5: ['Black', 'Green', 'Brown', 'White', 'Amber', 'Color', 'Azure', 'Ivory', 'Blush'],
+        6: ['Purple', 'Silver', 'Golden', 'Ginger'],
+        7: ['Crimson', 'Saffron', 'Verdant'],
+      },
+      month: {
+        3: ['May'],
+        4: ['June', 'July'],
+        5: ['March', 'April'],
+        6: ['August'],
+        7: ['January', 'October'],
+      },
+      music: {
+        3: ['Tap'],
+        4: ['Tune', 'Beat', 'Drum', 'Sing', 'Song', 'Sung', 'Bell'],
+        5: ['Music', 'Flute', 'Rhyme', 'Choir', 'Tempo', 'Strum'],
+        6: ['Chorus', 'Melody', 'Rhythm'],
+        7: ['Harmony'],
+      },
+      spooky: {
+        3: ['Urn', 'Ash', 'Bat', 'Web', 'Sad', 'Rib'],
+        4: ['Goth', 'Bone', 'Jack', 'Grim', 'Crow', 'Scar', 'Cage', 'Tomb', 'Weep', 'Wail'],
+        5: ['Ghost', 'Quiet', 'Witch', 'Death', 'Mummy', 'Demon', 'Devil', 'Raven', 'Skull', 'Scare', 'Ghoul', 'Grief', 'Blood', 'Scary', 'Haunt', 'Grave'],
+        6: ['Spooky', 'Creepy', 'Autumn', 'Plague', 'Broken'],
+        7: ['Pumpkin', 'Lantern', 'Haunted', 'Twisted', 'Weeping'],
+      },
+      rock: {
+        3: ['Jet'],
+        4: ['Rock', 'Ruby', 'Onyx', 'Opal'],
+        5: ['Stone', 'Agate', 'Amber', 'Beryl', 'Flint', 'Lapis', 'Nacre', 'Topaz'],
+        6: ['Marble', 'Basalt', 'Gypsum', 'Garnet', 'Jasper', 'Quartz', 'Lazuli', 'Spinel'],
+        7: ['Citrine', 'Diamond', 'Emerald', 'Peridot'],
+      },
+      other: {
+        3: ['Row', 'Way', 'Tip', 'Top', 'Low', 'Out', 'Run', 'New', 'Old', 'Big', 'Rip', 'Fly'],
+        4: ['York', 'Lane', 'High', 'East', 'West', 'Over', 'Road', 'Trim', 'Past', 'Slow', 'Tiny', 'Gift', 'Land', 'Cape', 'Comb', 'King', 'Well', 'Wild', 'Town', 'City', 'Fire'],
+        5: ['South', 'North', 'Under', 'Short', 'Small', 'Range', 'Crown', 'Glory', 'Peace', 'Queen', 'Speed', 'Angel', 'Happy', 'Ville', 'Cross', 'Sword'],
+        6: ['Desert', 'Canyon', 'Castle', 'Battle', 'Shield', 'Steady'],
+        7: ['Welcome', 'Glimmer', 'Slipper', 'Glitter', 'Unicorn'],
+      }
+    }
+    
+    //defines possible word length combos
+    var length_sets = [
+      [3,3],
+      [3,3,3],
+      [3,3,4],
+      [3,4],
+      [3,4,3],
+      [3,5],
+      [3,6],
+      [3,7],
+      [4,3],
+      [4,3,3],
+      [4,4],
+      [4,5],
+      [4,6],
+      [5],
+      [5,3],
+      [5,4],
+      [5,5],
+      [6],
+      [6,3],
+      [6,4],
+      [7],
+      [7,3]
+    ];
+    generateName();
+</script>
+</html>
