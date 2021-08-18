@@ -1,6 +1,7 @@
 # Animal Crossing New Horizons Name Generator
 
-Project status: :pencil: editing
+Project status: ✏️ editing
+
 Last updated: 08/18/21
 
 ## About the Project
