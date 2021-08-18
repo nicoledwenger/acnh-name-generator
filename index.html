@@ -1,32 +1,169 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <title>ACNH Island Name Generator</title>
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'hsd2hzl',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
   </head>
 
 
 <body>
-    <button type="button" onClick="generateName();">create new name</button>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
-    <fieldset>
-        <legend>Word categories to use</legend>
-        <span><input type="checkbox" checked="true" id="water"><label for="water">Island/Water</label></span>
-        <span><input type="checkbox" checked="true" id="animal"><label for="animal">Animals</label></span>
-        <span><input type="checkbox" checked="true" id="forest"><label for="forest">Forest</label></span>
-        <span><input type="checkbox" checked="true" id="flower"><label for="flower">Flowers</label></span>
-        <span><input type="checkbox" checked="true" id="food"><label for="food">Foods</label></span>
-        <span><input type="checkbox" checked="true" id="sky"><label for="sky">Sky/Weather</label></span>
-        <span><input type="checkbox" checked="true" id="winter"><label for="winter">Winter</label></span>
-        <span><input type="checkbox" checked="true" id="color"><label for="color">Colors</label></span>
-        <span><input type="checkbox" checked="true" id="month"><label for="month">Months</label></span>
-        <span><input type="checkbox" checked="true" id="music"><label for="music">Music</label></span>
-        <span><input type="checkbox" checked="true" id="spooky"><label for="spooky">Spooky</label></span>
-        <span><input type="checkbox" checked="true" id="rock"><label for="rock">Rocks/Gems</label></span>
-        <span><input type="checkbox" checked="true" id="other"><label for="other">Other</label></span>
-      </fieldset>
+  <div class="container m-5">
+    <div class="row">
+      <div class="col-4 text-center pt-4 pb-4" id="nookphone">
+        <p  id="time">3:26 PM</p>
+        <h2 class="m-3">Categories</h2>
+        <ul>
+          <div class="row row-cols-3 d-flex justify-content-around">
+            <li>
+              <input type="checkbox" checked="true" id="water">
+              <label for="water" class="checkbox">
+                <img src="./assets/water.png" />
+                <span class="col icon">Water</span>
+              </label>
+            </li>
+            
+            <li>
+              <input type="checkbox" checked="true" id="animal">
+              <label for="animal" class="checkbox">
+                <img src="./assets/animals.png" />
+                <span class="col icon">Animals</span>
+              </label>
+            </li>
+            
+            <li>
+              <input type="checkbox" checked="true" id="forest">
+              <label for="forest" class="checkbox">
+                <img src="./assets/forest.png" />
+                <span class="col icon">Forest</span>
+              </label>
+            </li>
+            
+            <li>
+              <input type="checkbox" checked="true" id="flower">
+              <label for="flower" class="checkbox">
+                <img src="./assets/flowers.png" />
+                <span class="col icon">Flowers</span>
+              </label>
+            </li>
+            
+            <li>
+              <input type="checkbox" checked="true" id="food">
+              <label for="food" class="checkbox">
+                <img src="./assets/food.png" />
+                <span class="col icon">Foods</span>
+              </label>
+            </li>
+            
+            <li>
+              <input type="checkbox" checked="true" id="sky">
+              <label for="sky" class="checkbox">
+                <img src="./assets/weather.png" />
+                <span class="col icon">Weather</span>
+              </label>
+            </li>
+            
+            <li>
+              <input type="checkbox" checked="true" id="winter">
+              <label for="winter" class="checkbox">
+                <img src="./assets/winter.png" />
+                <span class="col icon">Winter</span>
+              </label>
+            </li>
+            
+            <li>
+              <input type="checkbox" checked="true" id="color">
+              <label for="color" class="checkbox">
+                <img src="./assets/colors.png" />
+                <span class="col icon">Colors</span>
+              </label>
+            </li>
+            
+            <li>
+              <input type="checkbox" checked="true" id="month">
+              <label for="month" class="checkbox">
+                <img src="./assets/months.png" />
+                <span class="col icon">Months</span>
+              </label>
+            </li>
+            
+            <li>
+              <input type="checkbox" checked="true" id="music">
+              <label for="music" class="checkbox">
+                <img src="./assets/music.png" />
+                <span class="col icon">Music</span>
+              </label>
+            </li>
+            
+            <li>
+              <input type="checkbox" checked="true" id="spooky">
+              <label for="spooky" class="checkbox">
+                <img src="./assets/spooky.png" />
+                <span class="col icon">Spooky</span>
+              </label>
+            </li>
+            
+            <li>
+              <input type="checkbox" checked="true" id="rock">
+              <label for="rock" class="checkbox">
+                <img src="./assets/rock.png" />
+                <span class="col icon">Rocks</span>
+              </label>
+            </li>
+            
+            <li>
+              <input type="checkbox" checked="true" id="other">
+              <label for="other" class="checkbox">
+                <img src="./assets/other.png" />
+                <span class="col icon">Other</span>
+              </label>
+            </li>
+            
+          </div>
+          
+        </ul>
+      </div> <!--end left col-->
 
-    <p id="result"></p>
+      <div class="col-7 ms-5 pt-4" id="rightCol">
+        <div id="title">
+          <img src="./assets/logo.png" alt="animal crossing new horizons logo" />
+          <h1 class="ms-5 mt-3 ps-2">Island Name Generator </h1> 
+        </div>
+        
+        <div class="mt-5" id="content">
+          <p id="name">Generator</p>
+          <p class="ms-5 mt-4" id="text">Looking for a new island name?</p>
+          <div class="buttonContainer">
+            <button type="button" onClick="generateName();">Generate new name.</button>
+          </div>
+          <p id="result"></p>
+        </div>
+
+        
+      </div> <!--end right col-->
+    </div>
+  </div>
+
 </body>
 
+<!--generate name script-->
 <script>
 
     function generateName() {
