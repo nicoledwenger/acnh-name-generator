@@ -15,13 +15,13 @@ I sourced names for this generator from a Tumblr post from Angie's Town. To buil
 Future improvements are to design and develop responsive layouts while still keeping the overall Animal Crossing design.
 
 ### Built with
-* [Bootstrap] https://getbootstrap.com/
-* [JavaScript] https://www.javascript.com/
+* [Bootstrap](https://getbootstrap.com/)
+* [JavaScript](https://www.javascript.com/)
 
 ## Contact
-Nicole Dwenger - [nicole.ldwenger@yahoo.com] mailto:nicole.ldwenger@yahoo.com
+Nicole Dwenger - [nicole.ldwenger@yahoo.com](mailto:nicole.ldwenger@yahoo.com)
 
 Link to Project - https://github.com/nicoledwenger/acnh-name-generator
 
 ## Acknowledgements
-* [Angie'sList] https://angiestown.tumblr.com/post/190939140997/animal-crossing-town-name-ideas-updated
+* [Angie's Town](https://angiestown.tumblr.com/post/190939140997/animal-crossing-town-name-ideas-updated)
